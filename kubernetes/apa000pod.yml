@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod # リソースの種類 Pod Serviceなど
+metadata:
+  name: apa000pod
+  labels:
+    app: apa000kube
+spec: # リソースの内容を記述
+  containers:
+    - name: apa000ex91
+      image: httpd
+      ports:
+        - containerPort: 80

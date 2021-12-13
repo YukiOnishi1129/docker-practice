@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apa000ser
+spec:
+  type: NodePort # サービスの種類 (外部との通信をどのIPアドレスorDNSでアクセスするか？を設定)
+  ports:
+    - port: 8099 # サービスのポート
+      targetPort: 80 # コンテナのポート
+      protocol: TCP # 通信に使うプロトコル
+      nodePort: 30080 # ワーカーノードのポート
+  selector: # 特定のラベルがついたPodをサービスが管理するための設定
+    app: apa000kube

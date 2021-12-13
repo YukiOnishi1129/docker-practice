@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apa000dep
+spec:
+  selector: # 特定のラベルがついたPodをデプロイメントが管理するための設定(管理対象を指定するもの)
+    matchLabels:
+      app: apa000kube
+  replicas: 3 # Podをいくつに保つか？を設定
+  template: # 作成するpodの情報を記述
+    metadata:
+      labels:
+        app: apa000kube
+    spec:
+      containers:
+        - name: apa000ex91
+          image: httpd
+          ports:
+            - containerPort: 80
